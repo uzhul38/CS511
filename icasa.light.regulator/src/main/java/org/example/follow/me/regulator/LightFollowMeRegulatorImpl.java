@@ -456,13 +456,13 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 	 *            the variables to be summed.
 	 * @return the sum of the variables.
 	 */
-	private static double sum(double[] variables) {
-		double sum = 0;
-		for (int i = 0; i < variables.length; i++) {
-			sum += variables[i];
-		}
-		return sum;
-	}
+	private static double sum(double... variables) {
+        double sum = 0;
+        for (double var : variables) {
+            sum += var;
+        }
+        return sum;
+    }
 
 	/**
 	 * Convert a number into BitSet. This could be obtained directly in JAVA7

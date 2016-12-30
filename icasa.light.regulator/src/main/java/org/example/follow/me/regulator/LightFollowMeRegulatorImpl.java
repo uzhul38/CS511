@@ -309,18 +309,19 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 	private void setStateLights(String location, double maxPowerOfLightedLamps) {
 
 		double restPower;
-		restPower = setStateBinaryLightFromLocation(location, maxPowerOfLightedLamps);
+		restPower = setStateBinaryLight(location, maxPowerOfLightedLamps);
 		System.out.println("Check" + restPower);
-		setStateDimmerLightFromLocation(location, maxPowerOfLightedLamps - restPower);
+		setStateDimmerLight(location, maxPowerOfLightedLamps - restPower);
 
 	}
 
-	private double setStateBinaryLightFromLocation(String location, Double maxPowerOfLightedLamps) {
+	private double setStateBinaryLight(String location, Double maxPowerOfLightedLamps) {
 
 		/* list of binary lights in the location */
 		List<BinaryLight> sameLocationLigths = getBinaryLightFromLocation(location);
 		int i;
 
+		/* Best lights to enable */
 		double[] result = greadySubSetClosestSum(maxPowerOfLightedLamps, powerBinaryLightInArray(sameLocationLigths));
 		double restPower = sum(result);
 
@@ -339,18 +340,13 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 				} else {
 					if (!isOn)
 						binaryLight.turnOff();
-					else {
-					}
 				}
 			}
 		}
-
-		System.out.println("Check" + sum(result));
-
 		return restPower;
 	}
 
-	private double setStateDimmerLightFromLocation(String location, double powerRest) {
+	private double setStateDimmerLight(String location, double powerRest) {
 
 		/* list of binary lights in the location */
 		List<DimmerLight> sameLocationLigths = getDimmerLightFromLocation(location);
@@ -358,10 +354,8 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 		for (DimmerLight dimmerLight : sameLocationLigths) {
 
 			if (powerRest >= 1.0) {
-				while (powerRest >= 1) {
 					dimmerLight.setPowerLevel(1.0);
-					powerRest--;
-				}
+					powerRest--;	
 			} else if (powerRest > 0) {
 				dimmerLight.setPowerLevel(powerRest);
 			} else
@@ -417,10 +411,9 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 		}
 
 		return presenceSensorsLocation;
-
 	}
 
-	/*---------------------------------Perfect Algo -------------------------*/
+	/*---------------------------------Perfect Algo for enable light-------------------------*/
 
 	public static double[] greadySubSetClosestSum(final double maximalSum, final double[] items) {
 
@@ -511,7 +504,7 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 		return result;
 	}
 
-	/*----------------------------------FollowMe Configuration methods ------*/
+	/*----------------------------------FollowMe Configuration methods ---------------------------------------------------*/
 
 	/**
 	 * Gets the maximum number of lights to turn on each time an user is

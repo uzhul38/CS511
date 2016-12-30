@@ -310,7 +310,7 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 
 		double restPower;
 		restPower = setStateBinaryLight(location, maxPowerOfLightedLamps);
-		System.out.println("Check" + restPower);
+		System.out.println("Check" + (maxPowerOfLightedLamps - restPower));
 		setStateDimmerLight(location, maxPowerOfLightedLamps - restPower);
 
 	}
@@ -353,13 +353,15 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 
 		for (DimmerLight dimmerLight : sameLocationLigths) {
 
-			if (powerRest >= 1.0) {
-					dimmerLight.setPowerLevel(1.0);
-					powerRest--;	
-			} else if (powerRest > 0) {
-				dimmerLight.setPowerLevel(powerRest);
+			if (powerRest >= 100.0) {
+				dimmerLight.setPowerLevel(1.0);
+				powerRest = powerRest - 100.0;
+			} else if (powerRest > 0.0 && powerRest < 100.0) {
+				dimmerLight.setPowerLevel(powerRest / 100);
+				powerRest = 0;
 			} else
 				dimmerLight.setPowerLevel(0.0);
+			System.out.println("powerRest: " + powerRest);
 		}
 		return powerRest;
 	}
@@ -457,12 +459,12 @@ public class LightFollowMeRegulatorImpl implements DeviceListener, FollowMeConfi
 	 * @return the sum of the variables.
 	 */
 	private static double sum(double... variables) {
-        double sum = 0;
-        for (double var : variables) {
-            sum += var;
-        }
-        return sum;
-    }
+		double sum = 0;
+		for (double var : variables) {
+			sum += var;
+		}
+		return sum;
+	}
 
 	/**
 	 * Convert a number into BitSet. This could be obtained directly in JAVA7

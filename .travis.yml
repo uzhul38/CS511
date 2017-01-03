@@ -2,5 +2,13 @@ jdk:
   - oraclejdk8
 language: java
 
+env:
+secure:sAq3L09bjS3JU+rIgOaZSD55MqMMVqI8gy1WB0Z9oRV3S+Li1lnZF2Muvh4o8u+SmYJ5qvErc5+g88Hl3iytUFXVdnJASE/kIGuCNQb+tyZB+XM7acJwxykaaQtu3kxb9K8J131vQSjRfTCbqyoeOHlQCuXIGMkaov9nrybHzuSgxHcIOAn8ZBad9Jq2cFgiIkY927LJQ6VccF5l0vJ3ahWwsXjOGRGRTCflSUN92CcrMokjeBqAwZloA2yVSdXXpQBHblOFhXBFa4zUl5dOfmf8HTcUTl9PBNv+loRgtZkRbIi6XeNBTpy/gYZdG/jDND8gNzGy9NAYE1LJXI3Q0PQHtyWQBrfDAJdc0gCUhnQLmWHdTmLH1PSJGamjn5vnNOp9xbBJs4CsxxEav+zoiOIMY3Cs2IRXEaGyJcfasUncQy0MI/a0680XNnpDM+jLe2DnXwYk+8/AgFfwUneTliJB7LVY8QYzbE583+ScGxgF22namL4gNSTuvQ0cwslNQ4A5p/XmzKq6Ucs/bdaxuXQ2fZy/WBfRvQjMI4qF1E+QaFQGhUJ/gDojIBxsWC06rihfQBP2YbgL7jbqUiW2kJ+OagCg01UE6FKMVJEu27wZNYmjCGmrTqJOyG+2cnThrlA86Roo6IYvExPniYYpw/yc3fJaf2U8Mm0noJt10es=
+
 sudo: false
-script: mvn clean verify
+script: 
+
+mvn clean verify
+
+- mvn sonar :sonar -Dsonar.host.url=https:/sonarqube.com  -Dsonar.login=${SONARQUBE_TOKEN}
+

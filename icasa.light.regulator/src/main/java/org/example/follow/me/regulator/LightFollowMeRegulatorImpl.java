@@ -1,7 +1,6 @@
 package org.example.follow.me.regulator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
 import java.util.Map;

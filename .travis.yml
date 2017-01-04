@@ -10,5 +10,5 @@ script:
 
 mvn clean verify
 
-mvn sonar :sonar -Dsonar.host.url=https:/sonarqube.com  -Dsonar.login=${SONARQUBE_TOKEN}
+mvn sonar :sonar -Dsonar.host.url=https:/sonarqube.com  -Dsonar.login=${SONAR_TOKEN}
 

@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>teaching.reactor</artifactId>
-        <groupId>fr.liglab.adele.icasa.teaching</groupId>
+        <artifactId>teaching.cyril.reactor</artifactId>
+        <groupId>fr.liglab.adele.icasa.teaching.cyril</groupId>
         <version>0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>

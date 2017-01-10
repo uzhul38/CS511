@@ -8,12 +8,12 @@
 		<artifactId>teaching.cyril.reactor</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
-	
-	
+
+
 	<artifactId>icasa.temperature.command</artifactId>
 	<packaging>bundle</packaging>
-  
-	
+
+
 	<name>icasa.temperature.command</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -35,19 +35,19 @@
 			<groupId>fr.liglab.adele.icasa</groupId>
 			<artifactId>context.api</artifactId>
 		</dependency>
-		
+
 		<dependency>
-			<groupId>fr.liglab.adele.icasa.teaching</groupId>
+			<groupId>fr.liglab.adele.icasa.teaching.cyril</groupId>
 			<artifactId>icasa.temperature.api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
             <groupId>fr.liglab.adele.icasa</groupId>
             <artifactId>command.handler</artifactId>
             <version>${icasa.version}</version>
         </dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -55,8 +55,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
-	
+
+
     <!-- Ce qui va etre appelé dasn la phase de build du projet (en plus de ceux définit par défaut dans maven) -->
     <build>
         <plugins>
@@ -65,7 +65,7 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                      
+
                     </instructions>
                 </configuration>
             </plugin>
@@ -75,5 +75,5 @@
             </plugin>
         </plugins>
     </build>
-	
+
 </project>

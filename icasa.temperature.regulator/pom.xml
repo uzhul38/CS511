@@ -30,16 +30,16 @@
 			<groupId>fr.liglab.adele.icasa</groupId>
 			<artifactId>context.api</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>fr.liglab.adele.icasa</groupId>
 			<artifactId>technical.services.api</artifactId>
 			<version>1.2.7-SNAPSHOT</version>
 		</dependency>
-		
+
 
 		<dependency>
-			<groupId>fr.liglab.adele.icasa.teaching</groupId>
+			<groupId>fr.liglab.adele.icasa.teaching.cyril</groupId>
 			<artifactId>icasa.temperature.api</artifactId>
 			<version>${project.version}</version>
 		</dependency>

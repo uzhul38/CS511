@@ -5,5 +5,5 @@ language: java
 sudo: false
 
 after_success: 
-mvn sonar:sonar-Dsonar.host.url=https://sonarqube.com-Dsonar.login=${SONAR_TOKEN}
+ -mvn sonar:sonar-Dsonar.host.url=https://sonarqube.com-Dsonar.login=${SONAR_TOKEN}
 

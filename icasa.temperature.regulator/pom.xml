@@ -9,6 +9,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
+
 	<!-- DESCRIPTION OBLIGATOIRE DE L'ARTIFACT -->
 	<!-- Le groupeid et la version sont hérité du parent -->
 	<artifactId>icasa.temperature.regulator</artifactId>
